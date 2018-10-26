@@ -1,8 +1,19 @@
+function getScatterData() {
+	let arr = [];
+	for (let i = 0; i < 50; i++) {
+		arr[i] = {
+			x: Math.random() * 50,
+			y: Math.random() * 100,
+		};
+	}
+	return arr;
+}
+
 module.exports = {
-	home: {
-		"httpCode": 200,
-		"data": {
-			table: [
+	response: {
+		httpCode: 200,
+		data: {
+			home: [
 				{
 					"month": 1,
 					"compared": "2.3%",
@@ -75,7 +86,8 @@ module.exports = {
 					"lastYear": 4000,
 					"thisYear": 5300,
 				},
-			]
+			],
+			patient: getScatterData()
 		}
-	}
+	},
 };
