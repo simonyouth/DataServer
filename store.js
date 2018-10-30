@@ -1,9 +1,24 @@
+const randomInt = require('./utils');
+
 function getScatterData() {
-	let arr = [];
+	const arr = [];
 	for (let i = 0; i < 50; i++) {
 		arr[i] = {
 			x: Math.random() * 50,
 			y: Math.random() * 100,
+		};
+	}
+	return arr;
+}
+
+function getPieData() {
+	const arr = [];
+	const count = randomInt(2, 7);
+	for (let i = 0; i < count; i++) {
+		arr[i] = {
+			x: `depart${i}`,
+			y: randomInt(1, 400),
+			label: `depart${i}`,
 		};
 	}
 	return arr;
@@ -87,7 +102,8 @@ module.exports = {
 					"thisYear": 5300,
 				},
 			],
-			patient: getScatterData()
+			patient: getScatterData(),
+			depart: getPieData(),
 		}
 	},
 };
