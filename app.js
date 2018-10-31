@@ -15,12 +15,19 @@ app.use(async (ctx, next) => {
 
 app.use(async (ctx, next) => {
 	if (ctx.request.path === '/home') {
-		ctx.response.body = response;
+		ctx.response.body = response.home;
 	} else {
 		await next();
 	}
 });
 
+app.use(async (ctx, next) => {
+	if (ctx.request.path === '/packages') {
+		ctx.response.body = response.details;
+	} else {
+		await next();
+	}
+});
 
 // 在端口3000监听:
 app.listen(3000);
